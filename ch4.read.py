@@ -1,56 +1,3 @@
-# read = open('mbox-short.txt')
-# count = 0
-# for word in read:
-#     count = count + 1
-# print('line count:', count)
-#
-# fhand = open('mbox-short.txt')
-# inp = fhand.read()
-# print(len(inp))
-# print(inp[:20])
-
-# fhand = open('mbox-short.txt')
-# for line in fhand:
-#     line = line.rstrip()
-#     if line.startswith('From:'):
-#         print(line)
-
-# fhand = open('mbox-short.txt')
-# for line in fhand:
-#     line = line.rstrip()
-#     if not line.startswith('From:'):
-#         continue
-#     print(line)
-
-# fhand = open('mbox-short.txt')
-# for line in fhand:
-#     line = line.rstrip()
-#     if not '@uct.ac.za' in line:
-#         continue
-#     print(line)
-
-# fname = input('Enter the file name: ')
-# try:
-#     fhand = open(fname)
-# except:
-#     print('File cannot be opened:', fname)
-#     quit()
-#
-# count = 0
-# for line in fhand:
-#     line = line.rstrip()
-#     if line.startswith('Subject:'):
-#         count = count + 1
-# print('There were', count, 'subject lines in', fname)
-
-#
-# fh = open('mbox-short.txt')
-#
-# for lx in fh:
-#     nlx = lx.rstrip()
-#     if nlx.startswith('Received'):
-#         print(nlx.upper())
-
 #단어를 찾고, 단어 개수 세는 프로그램
 # def count_word(news,b):
 #     count = 0
@@ -73,14 +20,22 @@
 # add_news.write(b)
 # add_news.close()
 
-
 word = open('overwatch.txt', 'r', encoding='UTF-8')
 
+#글자를 세고 그 값을 반환하는 구간
 def count_word(word):
-    a = input("찾고 싶은 글자를 입력하세요: ")
+
     wordsearch = word.read()
     print(wordsearch)
     # print(word.read()) 이 경우 출력이 안나옴  왜그럴까?
-    return wordsearch.count(a)
+    print(wordsearch.count(a))
+    word.close()
 
-print(count_word(word))
+#변수에 담긴 글을 함수에 넣어주면 txt파일로 저장되는 구간
+    insert = open('overwatch.txt', 'a', encoding='UTF-8')
+    insert.write(a)
+    insert.close()
+
+a = input("찾고 싶은 글자를 입력하세요: ")
+
+count_word(word)
